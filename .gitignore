@@ -10,8 +10,7 @@ coverage/
 
 # Laravel / Backend
 /backend-laravel/vendor/
-/backend-laravel/.env
-!/backend-laravel/.env.example
+/backend-laravel/.env*
 /backend-laravel/storage/*.key
 /backend-laravel/storage/logs/*.log
 /backend-laravel/storage/framework/cache/*
