@@ -9,8 +9,7 @@
 [![React](https://img.shields.io/badge/Frontend-React_19_%7C_TypeScript_%7C_Vite-blue.svg)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind_CSS_v4-38bdf8.svg)](https://tailwindcss.com/)
 [![Laravel](https://img.shields.io/badge/Backend-Laravel_11_%7C_PHP_8.2+-ff2d20.svg)](https://laravel.com/)
-[![Database](https://img.shields.io/badge/Database-MySQL_8.0_%7C_MariaDB-4479a1.svg)](https://www.mysql.com/)
-[![AI Powered](https://img.shields.io/badge/AI-Google_Gemini-4285f4.svg)](https://ai.google.dev/)
+[![Database](https://img.shields.io/badge/Database-MySQL_8.0_%7)](https://www.mysql.com/)
 [![Bilingual](https://img.shields.io/badge/Languages-English_%7C_Somali-emerald.svg)](#dual-language--theme-customization)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
