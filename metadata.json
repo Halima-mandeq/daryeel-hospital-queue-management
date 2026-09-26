@@ -1,0 +1,7 @@
+{
+  "name": "DaryeelQoys: Clinic Triage & Smart Queue",
+  "description": "Nidaamka casriga ah ee safafka isbitaalka, triage-ka degdegga ah ee hooyada & dhallaanka, iyo xusuusinta tallaalka.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

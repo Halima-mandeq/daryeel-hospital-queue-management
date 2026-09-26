@@ -1,0 +1,25 @@
+# Node / Frontend dependencies & builds
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Laravel / Backend
+/backend-laravel/vendor/
+/backend-laravel/.env
+!/backend-laravel/.env.example
+/backend-laravel/storage/*.key
+/backend-laravel/storage/logs/*.log
+/backend-laravel/storage/framework/cache/*
+/backend-laravel/storage/framework/sessions/*
+/backend-laravel/storage/framework/views/*
+/backend-laravel/bootstrap/cache/*.php
+
+# IDE & OS
+.vscode/
+.idea/
+Thumbs.db
