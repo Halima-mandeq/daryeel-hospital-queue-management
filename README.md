@@ -222,19 +222,7 @@ Ensure you have the following installed on your machine:
    npm install
    ```
 
-3. Configure environment variables:
-   ```bash
-   cp .env.example .env.local
-   ```
-   * *Optional:* Add your `GEMINI_API_KEY` in `.env.local` to enable Google Gemini AI clinical triage evaluations.
 
-4. Start the frontend development server:
-   ```bash
-   npm run dev
-   ```
-   The application will be live at: **`http://localhost:3000`** (or the port indicated in your console).
-
----
 
 ### Step 2: Set Up the Backend (Laravel 11 & MySQL)
 
@@ -254,21 +242,6 @@ Ensure you have the following installed on your machine:
    php artisan key:generate
    ```
 
-4. Create the MySQL Database:
-   Open MySQL client or phpMyAdmin (`http://localhost/phpmyadmin`) and execute:
-   ```sql
-   CREATE DATABASE somali_hospital_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-   ```
-
-5. Update database credentials in `backend-laravel/.env`:
-   ```env
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=somali_hospital_db
-   DB_USERNAME=root
-   DB_PASSWORD=
-   ```
 
 6. Populate the database (choose **Option A** or **Option B**):
 
@@ -280,73 +253,16 @@ Ensure you have the following installed on your machine:
    * **Option B: Direct SQL Import**:
      Import the included SQL schema file using your terminal:
      ```bash
-     mysql -u root -p somali_hospital_db < database/schema_mysql.sql
-     ```
-     *(Or import `database/schema_mysql.sql` directly inside phpMyAdmin).*
+   
+---
 
-7. Start the Laravel backend server:
-   ```bash
-   php artisan serve
-   ```
-   The backend API will start at: **`http://localhost:8000`**
 
 ---
 
-### Step 3: Connect Frontend to Backend
 
-1. When you launch the web application, click the **Laravel Backend** indicator or button in the navigation header.
-2. Verify that the API URL is set to `http://localhost:8000/api`.
-3. Click **"Test Connection"** to verify that the health check passes (`online: true`).
-4. You can also click **"Sync All Local Records"** to migrate local demo data into your live MySQL database!
-
-> **Note:** If the backend is not running, the application automatically operates in **Standalone / Offline Mode** using local browser storage, ensuring uninterrupted clinical workflows.
 
 ---
 
-## 🔑 Demo User Accounts & Passwords
-
-The system comes pre-seeded with sample user accounts for all hospital roles:
-
-| Role | Name | Email | Password | Assigned Department / Room |
-| :--- | :--- | :--- | :--- | :--- |
-| **Admin** | Dr. Shire Axmed Maxamuud | `admin.shire@daryeelqoys.so` | `daryeel2026` | General Administration & Audit |
-| **Doctor (OB/GYN)** | Dr. Maryan Xasan Faarax | `dr.maryan@daryeelqoys.so` | `daryeel2026` | Maternity / Room 1 |
-| **Doctor (Pediatrics)** | Dr. Cabdiraxmaan Guuleed | `dr.guuleed@daryeelqoys.so` | `daryeel2026` | Pediatrics / Room 2 |
-| **Doctor (Emergency)** | Dr. Sahra Cumar Cali | `dr.sahra@daryeelqoys.so` | `daryeel2026` | Emergency / Room 3 |
-| **Triage Nurse** | Kalkaaliye Faadumo Jaamac | `nurse.faadumo@daryeelqoys.so` | `daryeel2026` | Emergency Triage Desk |
-| **Receptionist** | Sahra Maxamed Nuur | `reception@daryeelqoys.so` | `daryeel2026` | Reception & Registration Desk |
-| **Pharmacist** | Dr. Ibraahim Cabdi Cali | `pharmacy.ibrahim@daryeelqoys.so` | `daryeel2026` | Central Hospital Pharmacy |
-| **Lab Scientist** | Khadar Maxamuud Nuur | `lab.khadar@daryeelqoys.so` | `daryeel2026` | Diagnostic Pathology Lab |
-| **Cashier / Billing** | Fadxiya Cismaan Xirsi | `cashier.fadxiya@daryeelqoys.so` | `daryeel2026` | Billing & Mobile Money |
-| **Patient** | Xaliimo Nuur Warsame | `xaliimo.nuur@gmail.com` | `daryeel2026` | Patient Portal (Ticket: `M-14`) |
-
-*(Alternatively, the backend seeder accounts from `backend-laravel/README.md` such as `admin@somali-hospital.so` / `Admin123!` are also supported).*
-
----
-
-## 🌐 API Endpoints Reference
-
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/health` | Server status and database connectivity check |
-| `POST` | `/api/auth/login` | Staff / Patient authentication and Sanctum token generation |
-| `GET` | `/api/queue/live-board` | Active queue state for the waiting room TV display |
-| `GET` | `/api/patients` | Retrieve active patient list with triage levels and status |
-| `POST` | `/api/patients` | Register new walk-in patient and issue queue ticket |
-| `GET` | `/api/patients/lookup?q={ticket}` | Search ticket details by number or telephone |
-| `POST` | `/api/kiosk/scan-qr` | Validate QR code scanned at entrance kiosk |
-| `GET` | `/api/rooms` | Fetch list of consultation rooms and active doctor statuses |
-| `POST` | `/api/queue/call-next` | Advance queue and broadcast audio chime call for next patient |
-| `POST` | `/api/prescriptions` | Create e-prescription with medication items and dosage |
-| `POST` | `/api/prescriptions/{id}/dispense` | Mark prescription as dispensed and decrement inventory |
-| `GET` | `/api/pharmacy/inventory` | Retrieve pharmaceutical stock levels and alerts |
-
----
-
-## 📱 QR Code Ticketing & Mobile Check-In Workflow
-
-```mermaid
-sequenceDiagram
     autonumber
     actor Patient
     actor Reception
